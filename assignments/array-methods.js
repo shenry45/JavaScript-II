@@ -103,8 +103,10 @@ console.log(ticketPriceTotal);
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
 // Problem 1 -- What companies are involved in this race?
-const companies = runners.map(el => el.company_name);
-console.log(companies);
+const companyList = []
+
+runners.forEach(el => companyList.push(el.company_name));
+console.log(companyList);
 
 // Problem 2 -- Provide an email list with emails starting with y
 const emailList = [];
