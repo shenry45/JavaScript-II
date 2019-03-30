@@ -103,24 +103,16 @@ console.log(ticketPriceTotal);
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
 // Problem 1 -- What companies are involved in this race?
-const companyList = []
-
-runners.forEach(el => companyList.push(el.company_name));
+const companyList = runners.map(el => el.company_name);
 console.log(companyList);
 
 // Problem 2 -- Provide an email list with emails starting with y
-const emailList = [];
-const emailsStartWithY = [];
 
 // *****Get emails from runners object
-runners.map(el => emailList.push(el.email));
+const emailList = runners.map(el => el.email);
 
 // *****find emails starting with Y and add to array
-emailList.filter(el => {
-  if (el[0] == 'y') {
-    emailsStartWithY.push(el);
-  }
-})
+const emailsStartWithY = emailList.filter(el => el[0] == 'y');
 
 console.log(emailsStartWithY);
 
@@ -133,9 +125,11 @@ const shirtCount = {
   "2XL": 0,
   "3XL": 0
 };
-const shirtSizes = [];
 
-runners.map(el => shirtSizes.push(el.shirt_size));
+// Filter out shirt sizes
+const shirtSizes = runners.map(el => el.shirt_size);
+
+// Check size and increment
 shirtSizes.filter(el => {
   switch (el) {
     case "S":
@@ -157,6 +151,6 @@ shirtSizes.filter(el => {
       shirtCount["3XL"]++;
       break;
   }
-})
+});
 
 console.log(JSON.stringify(shirtCount));
